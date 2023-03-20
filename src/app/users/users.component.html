@@ -1,5 +1,5 @@
 <a routerLink="/add-user">Add</a>
 
 <ul>
-    <li *ngFor="let user of usersList">{{user.userName || ""}}</li>
+    <li *ngFor="let user of usersList">{{user.userName || ""}}<button type="button" (click)="onEdit(user)">Edit</button></li>
 </ul>

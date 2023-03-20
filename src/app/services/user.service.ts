@@ -34,13 +34,20 @@ export class UserService {
     }
   }
 
-  updateUser(body: UserModel) {
+  updateUser(userId: string, body: UserModel) {
     try {
-      return this.http.put<any>(this.baseURL + this.usersURL, body);
+      return this.http.put<any>(this.baseURL + this.usersURL+"/"+userId, body);
     } catch (error: any) {
       return throwError(() => new Error(error))
     }
   }
 
+  getUserDetail(id: string) {
+    try {
+      return this.http.get<any>(`${this.baseURL}${this.usersURL}/${id}`);
+    } catch (error: any) {
+      return throwError(() => new Error(error))
+    }
+  }
 
 }
